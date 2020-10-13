@@ -1,3 +1,14 @@
-﻿<h4>
-    Welcome to SportsStore
-</h4>
+﻿<!--Per Konvention sucht ASP.NET Core eine Startseite namens Index in den Ordnern Home oder Shared-->
+
+@model SportsStore.Models.ViewModels.ProductsListViewModel
+
+@foreach (var p in Model.Products)
+{
+    <div>
+        <h3>@p.Name</h3>
+        @p.Description
+        <h4>@p.Price.ToString("c")</h4>
+    </div>
+}
+
+<div page-model="@Model.PagingInfo" page-action="Index"></div>
